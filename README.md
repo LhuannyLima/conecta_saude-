@@ -32,7 +32,7 @@ A aplicação deverá apoiar o cadastro de pacientes, motoristas e funcionários
 
 ## 5. Documentação do projeto
 
-A modelagem do sistema está disponível no diretório [`docs/`](docs/):
+A modelagem do sistema está disponível no diretório (docs/):
 
 - [Diagrama de Classes](docs/diagrama-de-classes.md)
 - [Diagrama de Componentes].(Diagrama de componentes PW.drawio.png).
