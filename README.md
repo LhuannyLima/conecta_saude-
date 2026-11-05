@@ -35,3 +35,4 @@ A aplicação deverá apoiar o cadastro de pacientes, motoristas e funcionários
 A modelagem do sistema está disponível no diretório [`docs/`](docs/):
 
 - [Diagrama de Classes](docs/diagrama-de-classes.md)
+- [Diagrama de Componentes].(docs/diagrama-de-componentes.md).
