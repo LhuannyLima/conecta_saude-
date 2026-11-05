@@ -35,4 +35,4 @@ A aplicação deverá apoiar o cadastro de pacientes, motoristas e funcionários
 A modelagem do sistema está disponível no diretório (docs/):
 
 - [Diagrama de Classes](docs/diagrama-de-classes.md)
-- [Diagrama de Componentes].(Diagrama de componentes PW.drawio.png).
+- [Diagrama de Componentes](https://github.com/LhuannyLima/conecta_saude-/blob/main/Diagrama%20de%20componentes%20PW.drawio.png).
