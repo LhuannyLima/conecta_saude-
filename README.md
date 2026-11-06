@@ -27,6 +27,7 @@ A aplicação deverá apoiar o cadastro de pacientes, motoristas e funcionários
 
 - **Banco de dados:** SQLite.
 - **Padrões de projeto (GoF) previstos:** Factory Method e Facade.
+- **API externa:** API de autorização do Google utilizando o OAuth.
 
 > Esta seção deverá ser atualizada conforme as tecnologias e os padrões forem definidos e implementados pela equipe.
 
