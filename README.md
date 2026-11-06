@@ -35,5 +35,6 @@ A aplicação deverá apoiar o cadastro de pacientes, motoristas e funcionários
 A modelagem do sistema está disponível no diretório (docs/):
 
 - [Diagrama de Classes](docs/diagrama-de-classes.md)
-- [Diagrama de Componentes](https://github.com/LhuannyLima/conecta_saude-/blob/main/Diagrama%20de%20componentes%20PW.drawio.png).
+- [Diagrama de Componentes](docs/Diagrama%20de%20componentes%20PW.drawio.png.png)
+- [Diagrama de Entidades e Relacionamentos](docs/Diagrama%20de%20entidades%20e%20relacionamentos.drawio.png)
 - [PROJETO PRINCIPAL](https://github.com/LhuannyLima/conecta_saude-/blob/main/Projeto%20cinedu%20TFD.zip)
