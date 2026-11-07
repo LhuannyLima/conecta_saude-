@@ -46,7 +46,6 @@ classDiagram
         +contatoMotorista
     }
 
-    Usuario <|-- Paciente
     Usuario <|-- Motorista
     Usuario <|-- Funcionario
 
