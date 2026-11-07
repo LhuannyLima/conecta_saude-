@@ -35,9 +35,7 @@ A aplicação deverá apoiar o cadastro de pacientes, motoristas e funcionários
 
 A documentação e os diagramas do sistema estão disponíveis na pasta `documentos`:
 
-- [Diagrama de Classes](documentos/atualizado%20diagrama%20de%20classe.md)
-- [Diagrama de Componentes](documentos/Diagrama%20de%20componentes%20PW.drawio.png)
-- [Diagrama de Entidades e Relacionamentos](documentos/Diagrama%20de%20entidades%20e%20relacionamentos.drawio.png)
+- [Diagrama de Classes](documentos/diagrama%20atualizado%20de%20classe.md)
 - [Diagrama de Componentes](docs/Diagrama%20de%20componentes%20PW.drawio.png)
 - [Diagrama de Entidades e Relacionamentos](docs/Diagrama%20de%20entidades%20e%20relacionamentos.drawio.png)
 - [PROJETO PRINCIPAL](https://github.com/LhuannyLima/conecta_saude-/blob/main/Projeto%20cinedu%20TFD.zip)
