@@ -10,12 +10,15 @@ classDiagram
         +telefone
     }
 
-    class Paciente {
-        +cpf
-        +dataNascimento
-        +cartaoSUS
-        +acompanhante : opcional
-    }
+   class Paciente {
+    +id
+    +nome
+    +telefone
+    +cpf
+    +dataNascimento
+    +cartaoSUS
+    +acompanhante : opcional
+}
 
     class Motorista {
         +codigoIdentificacao
@@ -60,7 +63,7 @@ classDiagram
 
 ## Observações para validar com a equipe
 
-1. As anotações indicam que Paciente, Motorista e Funcionário são os três tipos de usuário. O diagrama usa `Usuario` como classe geral para reunir identificador, nome e telefone; essa generalização é uma decisão de modelagem proposta.
+1. As anotações indicam que Paciente, Motorista e Funcionário são os três tipos de usuário. O diagrama mantém `Usuario` como classe geral para Motorista e Funcionário. A classe `Paciente` possui seus próprios atributos e não herda de `Usuario`.
 2. Para Paciente, as anotações indicam CPF, data de nascimento, Cartão do SUS e telefone. Para Motorista e Funcionário, indicam código de identificação, nome e telefone.
 3. As anotações registram que a viagem contém motorista, local de origem, hospital de destino, paciente, confirmação, presença e data.
 4. O acompanhante foi representado como uma informação opcional da classe `Paciente`, e não como uma classe separada.
