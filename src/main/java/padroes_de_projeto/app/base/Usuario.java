@@ -1,4 +1,4 @@
-package base;
+package padroes_de_projeto.app.base;
 public abstract class Usuario {
     private long id;
     private String nome;

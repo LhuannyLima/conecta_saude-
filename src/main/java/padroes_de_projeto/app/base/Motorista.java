@@ -1,4 +1,4 @@
-package base;
+package padroes_de_projeto.app.base;
 public class Motorista extends Usuario {
     private int codigoIdentificacao;
 

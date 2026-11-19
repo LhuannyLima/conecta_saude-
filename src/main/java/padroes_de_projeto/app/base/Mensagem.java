@@ -1,4 +1,4 @@
-package base;
+package padroes_de_projeto.app.base;
 import java.time.LocalDate;
 
 public class Mensagem {
