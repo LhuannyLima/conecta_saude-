@@ -1,6 +1,5 @@
 package padroes_de_projeto.app.base;
 
-import padroes_de_projeto.app.base.Acompanhante;
 import java.time.LocalDate;
 
 public class Paciente extends Usuario {
