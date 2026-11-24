@@ -3,13 +3,13 @@ package padroes_de_projeto.app;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import base.SolicitacaoTFD;
-import base.Motorista;
-import base.Viagem;
-import strategy.EstrategiaAlocacao;
-import strategy.MenorNumeroViagensMes;
-import service.ViagemService;
-import app.TFDFacade;
+import padroes_de_projeto.app.base.*;
+
+import padroes_de_projeto.app.strategy.EstrategiaAlocacao;
+import padroes_de_projeto.app.strategy.MenorNumeroViagensMes;
+import padroes_de_projeto.app.service.ViagemService;
+import padroes_de_projeto.app.TFDFacade;
+
 public class App {
 
     public static void main(String[] args) {

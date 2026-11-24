@@ -1,4 +1,4 @@
-package strategy;
+package padroes_de_projeto.app.strategy;
 
 // Importa a interface List para trabalhar com listas
 import java.util.List;
@@ -7,8 +7,8 @@ import java.util.List;
 import java.time.LocalDate;
 
 // Importa as classes Motorista e Viagem do pacote base
-import base.Motorista;
-import base.Viagem;
+import padroes_de_projeto.app.base.Viagem;
+import padroes_de_projeto.app.base.Motorista;
 
 // Interface que define o contrato para as estratégias de alocação
 public interface EstrategiaAlocacao {

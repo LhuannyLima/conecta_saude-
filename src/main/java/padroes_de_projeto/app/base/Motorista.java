@@ -1,33 +1,26 @@
-package base;
+package padroes_de_projeto.app.base;
 
-// Classe que representa o motorista e herda os dados de Usuario
 public class Motorista extends Usuario {
 
-    // Código de identificação do motorista
+   
     private int codigoIdentificacao;
-
-    // Informa se o motorista possui veículo adaptado
     private boolean possuiVeiculoAdaptado;
 
-    // Construtor vazio
+
     public Motorista(){}
 
-    // Construtor que recebe os dados do motorista
-    public Motorista(String nome, String telefone, long id, int codigoIdentificacao){
-
-        // Chama o construtor da classe Usuario para definir os dados herdados
+    public Motorista(boolean possuiVeiculoAdaptado, String nome, String telefone, long id, int codigoIdentificacao){
         super(id, nome, telefone);
-
-        // Define o código de identificação do motorista
+        this.possuiVeiculoAdaptado = possuiVeiculoAdaptado;
         this.codigoIdentificacao = codigoIdentificacao;
     }
 
-    // Retorna o código de identificação do motorista
+    
     public int getCodigoIndentificacaoMotorista(){
         return codigoIdentificacao;
     }
 
-    // Define o código de identificação do motorista
+  
     public void setCodigoIndentificacaoMotorista(int codigoIdentificacao){
         this.codigoIdentificacao = codigoIdentificacao;
     }

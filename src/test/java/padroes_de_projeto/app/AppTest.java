@@ -3,7 +3,7 @@ package padroes_de_projeto.app;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import org.junit.jupiter.api.Test;
-import base.Paciente;
+import padroes_de_projeto.app.base.Paciente;
 import java.time.LocalDate;
 
 /**

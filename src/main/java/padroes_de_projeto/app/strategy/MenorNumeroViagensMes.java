@@ -5,7 +5,7 @@ import java.time.LocalDate;
 
 import padroes_de_projeto.app.base.Motorista;
 import padroes_de_projeto.app.base.Viagem;
-import padroes_de_projeto.app.base.SolicitacaoTFD;
+
 
 // Estratégia que seleciona o motorista com menos viagens no mês
 public class MenorNumeroViagensMes implements EstrategiaAlocacao {

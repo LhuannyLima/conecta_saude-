@@ -1,24 +1,27 @@
 package padroes_de_projeto.app.base;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class Mensagem {
-    protected  LocalDate dataSaida;
-    protected  boolean confirmacao;
-    protected  String nomeMotorista;
-    protected  String contatoMotorista;
+    private LocalDate dataSaida;
+    private  boolean confirmacao;
+    private  String nomeMotorista;
+    private  String contatoMotorista;
+    private LocalTime horarioSaida;
 
     private SolicitacaoTFD solicitacao;
     private Viagem viagem;
 
     public Mensagem(){}
 
-    public Mensagem(LocalDate dataSaida, boolean confirmacao, String nomeMotorista, String contatoMotorista, Viagem viagem, SolicitacaoTFD solicitacao){
+    public Mensagem(LocalTime horarioSaida, LocalDate dataSaida, boolean confirmacao, String nomeMotorista, String contatoMotorista, Viagem viagem, SolicitacaoTFD solicitacao){
         this.dataSaida = dataSaida;
         this.confirmacao = confirmacao;
         this.nomeMotorista = nomeMotorista;
         this.contatoMotorista = contatoMotorista;
         this.solicitacao = solicitacao;
         this.viagem = viagem;
+        this.horarioSaida = horarioSaida;
         
     }
     //Não pus SET para que não seja mudado a informação
@@ -34,6 +37,9 @@ public class Mensagem {
     public String getContatoMotorista() {
         return contatoMotorista;
     }
+    public LocalTime getHorarioSaida() {
+        return horarioSaida;
+    }
 
     //Exceção
     public SolicitacaoTFD getSolicitacao() {
@@ -47,6 +53,7 @@ public class Mensagem {
     }public void setViagem(Viagem viagem) {
         this.viagem = viagem;
     }
+
     
     
     

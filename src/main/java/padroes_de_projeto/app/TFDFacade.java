@@ -1,11 +1,15 @@
-package app;
+package padroes_de_projeto.app;
 import java.util.List;
 import java.time.LocalDate;
-import base.Motorista;
-import base.Viagem;
-import service.ViagemService;
-import base.Mensagem;
-import base.SolicitacaoTFD;
+import padroes_de_projeto.app.base.Motorista;
+import padroes_de_projeto.app.base.Viagem;
+import padroes_de_projeto.app.base.Mensagem;
+import padroes_de_projeto.app.base.SolicitacaoTFD;
+
+import padroes_de_projeto.app.service.ViagemService;
+
+
+
 
 // Fachada responsável por centralizar o processo do TFD
 public class TFDFacade {
