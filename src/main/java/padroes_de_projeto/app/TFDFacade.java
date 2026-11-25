@@ -4,7 +4,8 @@ import java.time.LocalDate;
 import padroes_de_projeto.app.base.Motorista;
 import padroes_de_projeto.app.base.Viagem;
 import padroes_de_projeto.app.base.Mensagem;
-import padroes_de_projeto.app.base.SolicitacaoTFD;
+import padroes_de_projeto.app.DTO.*;
+
 
 import padroes_de_projeto.app.service.ViagemService;
 
@@ -36,35 +37,45 @@ public class TFDFacade {
         );
     }
 
+    public Mensagem enviarMensagem(MensagemDaViagemDTO dto){
+        if(dto == null || !dto.isConfirmacao()){
+            return null;
+        }
+        Mensagem mensagem = new Mensagem(
+            dto.getLocalSaida(),
+            dto.getLocalDestino(),
+            dto.getHorarioSaida(),
+            dto.getDataSaida(),
+            dto.isConfirmacao(),
+            dto.getNomeMotorista(),
+            dto.getContatoMotorista()
+        );
+       return mensagem;
+    }
+
     // Cria e exibe a mensagem com os dados da viagem
     public void enviarMensagem(Viagem viagem) {
-
-        // Obtém o motorista que foi alocado
+        if(viagem == null){
+            System.out.println("Essa viagem não existe!");
+            return;
+        }
         Motorista motorista = viagem.getMotorista();
-
-        // Obtém a solicitação vinculada à viagem
-        SolicitacaoTFD solicitacao = viagem.getSolicitacao();
-
-        // Cria a mensagem com os dados da viagem
-        Mensagem mensagem = new Mensagem(
-            viagem.getData(),
-            viagem.isConfirmacao(),
-            motorista.getNome(),
-            motorista.getTelefone(),
-            viagem,
-            solicitacao
-        );
-
-        // Adiciona a mensagem à lista da viagem
-        viagem.adicionarMensagem(mensagem);
-
-        // Exibe os dados no terminal
-        System.out.println("===== INFORMAÇÕES DA VIAGEM TFD =====");
-        System.out.println("Data de saída: " + mensagem.getDataSaida());
-        System.out.println("Confirmação: " + mensagem.isConfirmacao());
-        System.out.println("Motorista: " + mensagem.getNomeMotorista());
-        System.out.println("Contato: " + mensagem.getContatoMotorista());
-        System.out.println("===================================");
+        
+        if(motorista == null){
+            System.out.println("Viagem negada por falta de motorista!");
+        }else{
+        
+            if(viagem.isConfirmacao() == false){
+                System.out.println("Viagem negada!");
+                return;
+            }
+                String nomeMotorista = motorista.getNome();
+                String telefoneMotorista = motorista.getTelefone();
+                MensagemDaViagemDTO dto = new MensagemDaViagemDTO(viagem.getLocalOrigem(), viagem.getHospitalDestino(), viagem.getDataViagem(), viagem.isConfirmacao(), nomeMotorista, telefoneMotorista, viagem.getHorarioProcedimento());
+                Mensagem mensagem = enviarMensagem(dto);
+                exibirMensagem(dto);
+                viagem.adicionarMensagem(mensagem);
+        }
     }
         // Coordena a alocação do motorista e a exibição da mensagem
     public Motorista processarViagem(
@@ -85,7 +96,17 @@ public class TFDFacade {
         // Retorna o motorista selecionado
         return motorista;
     }
+
+    private void exibirMensagem(MensagemDaViagemDTO dto){
+        System.out.println("===== INFORMAÇÕES DA VIAGEM TFD =====");
+        System.out.println("Origem: " + dto.getLocalSaida());
+        System.out.println("Destino: " + dto.getLocalDestino());
+        System.out.println("Horário de saída: " + dto.getHorarioSaida());
+        System.out.println("Data de saída: " + dto.getDataSaida());
+        System.out.println("Confirmação: " + dto.isConfirmacao());
+        System.out.println("Motorista: " + dto.getNomeMotorista());
+        System.out.println("Contato: " + dto.getContatoMotorista());
+        System.out.println("===================================");
+    }
+
 }
-
-
-

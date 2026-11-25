@@ -14,11 +14,11 @@ public class MensagemDaViagemDTO {
     private final String localDestino;
 
     public MensagemDaViagemDTO(String localsaida, String localDestino, LocalDate dataSaida, boolean confirmacao, String nomeMotorista, String contatoMotorista, LocalTime horarioSaida){
-        this.dataSaida = Objects.requireNonNull(dataSaida, "A data não pode ser nula");
-        this.confirmacao = Objects.requireNonNull(confirmacao, "A confirmação não pode ser nula");
+        this.dataSaida = Objects.requireNonNull(dataSaida, "Data de viagem");
+        this.confirmacao = Objects.requireNonNull(confirmacao, "Confirmação de viagem");
         this.nomeMotorista = validarTexto(nomeMotorista, "Nome do motorista");
         this.contatoMotorista = validarTexto(contatoMotorista, "Contado do motorista");
-        this.horarioSaida = Objects.requireNonNull(horarioSaida, "O horário não pode ser nulo!");
+        this.horarioSaida = Objects.requireNonNull(horarioSaida, "O horário da viagem");
         this.localDestino = validarTexto(localDestino, "Local destino");
         this.localSaida = validarTexto(localsaida, "Local saida");
     }

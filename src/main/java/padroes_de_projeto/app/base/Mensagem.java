@@ -7,20 +7,19 @@ public class Mensagem {
     private  boolean confirmacao;
     private  String nomeMotorista;
     private  String contatoMotorista;
+    private  String LocalSaida;
+    private  String LocalDestino;
     private LocalTime horarioSaida;
-
-    private SolicitacaoTFD solicitacao;
-    private Viagem viagem;
 
     public Mensagem(){}
 
-    public Mensagem(LocalTime horarioSaida, LocalDate dataSaida, boolean confirmacao, String nomeMotorista, String contatoMotorista, Viagem viagem, SolicitacaoTFD solicitacao){
+    public Mensagem(String LocalDestino, String LocalSaida, LocalTime horarioSaida, LocalDate dataSaida, boolean confirmacao, String nomeMotorista, String contatoMotorista){
         this.dataSaida = dataSaida;
         this.confirmacao = confirmacao;
         this.nomeMotorista = nomeMotorista;
         this.contatoMotorista = contatoMotorista;
-        this.solicitacao = solicitacao;
-        this.viagem = viagem;
+        this.LocalDestino = LocalDestino;
+        this.LocalSaida = LocalSaida;
         this.horarioSaida = horarioSaida;
         
     }
@@ -41,17 +40,18 @@ public class Mensagem {
         return horarioSaida;
     }
 
-    //Exceção
-    public SolicitacaoTFD getSolicitacao() {
-        return solicitacao;
-    }public void setSolicitacao(SolicitacaoTFD solicitacao) {
-        this.solicitacao = solicitacao;
+    public String getLocalSaida() {
+        return LocalSaida;
+    }
+    public void setLocalSaida(String localSaida) {
+        LocalSaida = localSaida;
     }
 
-    public Viagem getViagem() {
-        return viagem;
-    }public void setViagem(Viagem viagem) {
-        this.viagem = viagem;
+    public String getLocalDestino() {
+        return LocalDestino;
+    }
+    public void setLocalDestino(String origemSaida) {
+        LocalDestino = origemSaida;
     }
 
     

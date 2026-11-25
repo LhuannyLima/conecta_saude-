@@ -7,7 +7,7 @@ import padroes_de_projeto.app.DTO.SolicitacaoDTO;
 import java.util.Objects;
 
 public class SolicitacaoCommand implements Command {
-    private final TFDFacade facade; //nome provisório
+    private final TFDFacade facade; 
     private final SolicitacaoDTO dto;
     
     public SolicitacaoCommand(TFDFacade facade, SolicitacaoDTO dto){

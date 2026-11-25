@@ -1,11 +1,12 @@
-package service;
+package padroes_de_projeto.app.service;
 
 import java.util.List;
 import java.time.LocalDate;
 
-import base.Motorista;
-import base.Viagem;
-import strategy.EstrategiaAlocacao;
+import padroes_de_projeto.app.base.Motorista;
+import padroes_de_projeto.app.base.Viagem;
+
+import padroes_de_projeto.app.strategy.EstrategiaAlocacao;
 
 // Serviço responsável por realizar a alocação de motoristas
 public class ViagemService {
