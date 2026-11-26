@@ -1,9 +1,11 @@
 package padroes_de_projeto.app.base;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class Viagem extends SolicitacaoTFD {
     //atributos
+    private LocalTime horario;
     private LocalDate data;
     private String localOrigem;
     private String hospitalDestino;
@@ -22,7 +24,20 @@ public class Viagem extends SolicitacaoTFD {
         this.mensagens = new ArrayList<>();
     }
 
-    public Viagem(Motorista motorista, Funcionario funcionarioAlocador, Paciente paciente, SolicitacaoTFD solicitacao, Mensagem mensagem, LocalDate data, boolean confirmacao, boolean presencaPaciente, String localOrigem, String hospitalDestino){
+    public Viagem(
+        Motorista motorista,
+        Funcionario funcionarioAlocador,
+        Paciente paciente,
+        SolicitacaoTFD solicitacao,
+        Mensagem mensagem,
+        LocalTime horario,
+        LocalDate data,
+        boolean confirmacao,
+        boolean presencaPaciente,
+        String localOrigem,
+        String hospitalDestino
+    ){
+        this.horario = horario;
         this.data = data;
         this.confirmacao = confirmacao;
         this.presencaPaciente = confirmacao;
@@ -50,6 +65,12 @@ public class Viagem extends SolicitacaoTFD {
         return data;
     }public void setData(LocalDate data) {
         this.data = data;
+    }
+
+    public LocalTime getHorario() {
+        return horario;
+    }public void sethorario(LocalTime horario) {
+        this.horario = horario;
     }
 
     public String getLocalOrigem() {

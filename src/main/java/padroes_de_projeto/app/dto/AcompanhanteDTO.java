@@ -1,4 +1,4 @@
-package padroes_de_projeto.app.DTO;
+package padroes_de_projeto.app.dto;
 import java.util.Objects;
 
 public class AcompanhanteDTO {

@@ -52,6 +52,8 @@ public class SolicitacaoTFD {
         return horarioProcedimento;
     }
 
-    
+    public void setNecessitaVeiculoAdaptado(boolean necessitaVeiculoAdaptado) {
+        this.necessitaVeiculoAdaptado = necessitaVeiculoAdaptado;        
+    }
     
 }

@@ -47,6 +47,7 @@ public class TFDFacade {
 
         // Cria a mensagem com os dados da viagem
         Mensagem mensagem = new Mensagem(
+            viagem.getHorario(),
             viagem.getData(),
             viagem.isConfirmacao(),
             motorista.getNome(),
