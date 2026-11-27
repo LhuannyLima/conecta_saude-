@@ -1,15 +1,19 @@
 package padroes_de_projeto.app;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import padroes_de_projeto.app.base.Acompanhante;
 import padroes_de_projeto.app.base.Motorista;
+import padroes_de_projeto.app.base.Paciente;
 import padroes_de_projeto.app.base.SolicitacaoTFD;
 import padroes_de_projeto.app.base.Viagem;
 import padroes_de_projeto.app.service.ViagemService;
 import padroes_de_projeto.app.strategy.EstrategiaAlocacao;
 import padroes_de_projeto.app.strategy.MenorNumeroViagensMes;
+import padroes_de_projeto.app.DTO.*;
 
 public class App {
 
@@ -80,5 +84,19 @@ public class App {
         );
         // Exibe o motorista escolhido
         System.out.println("Motorista selecionado: " + motoristaEscolhido.getNome());
+
+        Paciente DonaRosa = new Paciente();
+        AcompanhanteDTO irmaDeRosa = new AcompanhanteDTO("Josefina", "Pereira da Luz", "123.123.123-45"); 
+        SolicitacaoDTO solicitacao1 = new SolicitacaoDTO(true, LocalTime.of(16, 0), "SOLI-1", DonaRosa, "Catu", "Catu", LocalDate.of(2026, 11, 30), irmaDeRosa);
+        facade.Criarviagem(viagemAtual, solicitacao1, motoristas, viagens);
+
+        Paciente Ester = new Paciente();
+        SolicitacaoDTO solicitacao2 = new SolicitacaoDTO(true, LocalTime.of(13, 0), "SOLI-2", Ester, "Catu", "Salvador", LocalDate.of(2026, 11, 30), null);
+        facade.Criarviagem(viagemAtual, solicitacao2, motoristas, viagens);
+
+        Paciente Clara = new Paciente();
+        AcompanhanteDTO Valdete = new AcompanhanteDTO("Valdete", "Santos da Luz", "123.123.123-45"); 
+        SolicitacaoDTO solicitacao3 = new SolicitacaoDTO(false, LocalTime.of(16, 0), "SOLI-3", Clara, "Catu", "Aguas claras", LocalDate.of(2026, 11, 27), Valdete);
+        facade.Criarviagem(viagemAtual, solicitacao3, motoristas, viagens);
     }
 }

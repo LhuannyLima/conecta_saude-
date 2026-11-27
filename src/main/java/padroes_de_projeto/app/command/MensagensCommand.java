@@ -2,10 +2,6 @@ package padroes_de_projeto.app.Command;
 import padroes_de_projeto.app.TFDFacade;
 import padroes_de_projeto.app.DTO.MensagemDaViagemDTO;
 
-import padroes_de_projeto.app.TFDFacade;
-import padroes_de_projeto.app.DTO.MensagemDaViagemDTO;
-
-
 import java.util.Objects;
 
 public class MensagensCommand  implements Command{

@@ -1,4 +1,4 @@
-package padroes_de_projeto.app.dto;
+package padroes_de_projeto.app.DTO;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Objects;

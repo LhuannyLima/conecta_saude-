@@ -33,15 +33,14 @@ public class MenorNumeroViagensMes implements EstrategiaAlocacao {
         }
 
         // Verifica se a viagem atual foi informada
-        if (viagemAtual == null || viagemAtual.getSolicitacao() == null) {
+        if (viagemAtual == null || viagemAtual.getSolicitacao() == null || viagemAtual.getSolicitacao().isEmpty()) {
             throw new IllegalArgumentException(
                 "A viagem e sua solicitação são obrigatórias."
             );
         }
-
+       
         // Verifica se a solicitação precisa de veículo adaptado
-        boolean precisaAdaptado = viagemAtual.getSolicitacao()
-            .isNecessitaVeiculoAdaptado();
+        boolean precisaAdaptado = viagemAtual.getSolicitacao().get(0).isNecessitaVeiculoAdaptado();
 
         // Guarda o motorista que será selecionado
         Motorista motoristaSelecionado = null;
