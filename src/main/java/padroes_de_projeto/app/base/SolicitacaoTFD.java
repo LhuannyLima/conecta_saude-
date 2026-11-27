@@ -47,6 +47,10 @@ public class SolicitacaoTFD {
     public boolean isNecessitaVeiculoAdaptado() {
         return necessitaVeiculoAdaptado;
     }
+    public boolean setNecessitaVeiculoAdaptado(boolean necessitaVeiculoAdaptado) {
+        return necessitaVeiculoAdaptado;
+    }
+
 
     public LocalTime getHorarioProcedimento() {
         return horarioProcedimento;

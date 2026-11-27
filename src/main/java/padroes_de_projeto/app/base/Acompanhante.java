@@ -5,6 +5,8 @@ public class Acompanhante {
     private String sobrenome;
     private String cpf;
 
+    public Acompanhante(){}
+
     public Acompanhante(String nome, String sobrenome, String cpf) {
         this.nome = nome;
         this.sobrenome = sobrenome;

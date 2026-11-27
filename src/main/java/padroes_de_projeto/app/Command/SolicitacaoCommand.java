@@ -1,6 +1,5 @@
 package padroes_de_projeto.app.Command;
 
-import padroes_de_projeto.app.base.*;
 import padroes_de_projeto.app.TFDFacade;
 import padroes_de_projeto.app.DTO.SolicitacaoDTO;
 

@@ -1,25 +1,31 @@
 package padroes_de_projeto.app.DTO;
 import java.time.LocalDate;
 import java.util.Objects;
+
+import padroes_de_projeto.app.base.Paciente;
+import padroes_de_projeto.app.base.SolicitacaoTFD;
+
 import java.time.LocalTime;
 
-public class SolicitacaoDTO {
+public class SolicitacaoDTO extends SolicitacaoTFD {
     private final String idSolicitacao;
-    private final String idPaciente;
+    private final Paciente paciente;
     private final String municipioOrigem;
     private final String municipioProcedimento;
     private final LocalDate dataViagem;
     private final AcompanhanteDTO acompanhate;
     private final LocalTime horarioProcedimento;
+    private final boolean necessitaVeiculoAdaptado;
 
-    public SolicitacaoDTO(LocalTime horarioProcedimento, String idSolicitacao, 
-        String idPaciente, 
+    public SolicitacaoDTO(boolean necessitaVeiculoAdaptado, LocalTime horarioProcedimento, String idSolicitacao, 
+        Paciente paciente, 
         String municipioOrigem,
         String municipioProcedimento,
         LocalDate dataViagem,
-        AcompanhanteDTO acompanhate){
-
-        this.idPaciente = validacao(idPaciente, "ID do paciente");
+        AcompanhanteDTO acompanhate)
+        {
+        this.necessitaVeiculoAdaptado = necessitaVeiculoAdaptado;
+        this.paciente = Objects.requireNonNull(paciente,"Dados do paciente");
         this.idSolicitacao = validacao(idSolicitacao, "ID da solicitação");
         this.municipioOrigem = validacao(municipioOrigem, "Municipio de origem");
         this.municipioProcedimento = validacao(municipioProcedimento, "Municipio de procedimento");
@@ -43,8 +49,8 @@ public class SolicitacaoDTO {
             return idSolicitacao;
         }
 
-        public String getIdPaciente() {
-            return idPaciente;
+        public Paciente getIdPaciente() {
+            return paciente;
         }
 
         public String getMunicipioOrigem() {
@@ -71,4 +77,9 @@ public class SolicitacaoDTO {
             return horarioProcedimento;
         }
 
+        public boolean isNecessitaVeiculoAdaptado() {
+            return necessitaVeiculoAdaptado;
+        }
+
+        
 }

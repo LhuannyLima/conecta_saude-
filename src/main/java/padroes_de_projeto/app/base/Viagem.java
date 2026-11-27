@@ -1,5 +1,6 @@
 package padroes_de_projeto.app.base;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class Viagem extends SolicitacaoTFD {
@@ -9,32 +10,34 @@ public class Viagem extends SolicitacaoTFD {
     private String hospitalDestino;
     private boolean confirmacao;
     private boolean presencaPaciente;
+    private Acompanhante acompanhante;
+    private LocalTime horarioProcedimento;
 
     //relacionamentos
     private ArrayList<Paciente> pacientes;
     private ArrayList<Mensagem> mensagens;
     private Motorista motorista;
     private Funcionario funcionarioAlocador;
-    private SolicitacaoTFD solicitacao;
+    private ArrayList<SolicitacaoTFD> solicitacao;
 
     public Viagem(){
         this.pacientes = new ArrayList<>();
         this.mensagens = new ArrayList<>();
+        this.solicitacao = new ArrayList<>();
     }
 
-    public Viagem(Motorista motorista, Funcionario funcionarioAlocador, Paciente paciente, SolicitacaoTFD solicitacao, Mensagem mensagem, LocalDate data, boolean confirmacao, boolean presencaPaciente, String localOrigem, String hospitalDestino){
+    public Viagem(LocalTime horarioProcedimento, Acompanhante acompanhante, Motorista motorista,  Paciente paciente, SolicitacaoTFD solicitacao, Mensagem mensagem, LocalDate data, boolean confirmacao, boolean presencaPaciente, String localOrigem, String hospitalDestino){
         this.data = data;
         this.confirmacao = confirmacao;
         this.presencaPaciente = confirmacao;
         this.localOrigem = localOrigem;
         this.hospitalDestino = hospitalDestino;
-
-        this.solicitacao = solicitacao;
+        this.acompanhante = acompanhante;
+        this.solicitacao = new ArrayList<>();
         this.motorista = motorista;
-        this.funcionarioAlocador = funcionarioAlocador;
-
         this.pacientes = new ArrayList<>();
         this.mensagens = new ArrayList<>();
+        this.horarioProcedimento = horarioProcedimento;
     }
 
     //Listas add
@@ -43,6 +46,9 @@ public class Viagem extends SolicitacaoTFD {
     }
     public void adicionarMensagem(Mensagem mensagem){
         this.mensagens.add(mensagem);
+    }
+    public void adicionarSolicitacao(SolicitacaoTFD solicitacao){
+        this.solicitacao.add(solicitacao);
     }
 
     //Get e set
@@ -88,9 +94,9 @@ public class Viagem extends SolicitacaoTFD {
         this.funcionarioAlocador = funcionarioAlocador;
     }
 
-    public SolicitacaoTFD getSolicitacao() {
+    public ArrayList<SolicitacaoTFD> getSolicitacao() {
         return solicitacao;
-    }public void setSolicitacao(SolicitacaoTFD solicitacao) {
+    }public void setSolicitacao(ArrayList<SolicitacaoTFD> solicitacao) {
         this.solicitacao = solicitacao;
     }
 
@@ -105,4 +111,21 @@ public class Viagem extends SolicitacaoTFD {
     }public void setMensagens(ArrayList<Mensagem> mensagens) {
         this.mensagens = mensagens;
     }
+
+    public Acompanhante getAcompanhante() {
+        return acompanhante;
+    }public void setAcompanhante(Acompanhante acompanhante) {
+        this.acompanhante = acompanhante;
+    }
+
+    public LocalTime getHorarioProcedimento() {
+        return horarioProcedimento;
+    }
+    public void setHorarioProcedimento(LocalTime horarioProcedimento) {
+        this.horarioProcedimento = horarioProcedimento;
+    }
+
+    
+
+    
 }

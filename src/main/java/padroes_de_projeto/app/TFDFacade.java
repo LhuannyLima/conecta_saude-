@@ -1,15 +1,9 @@
 package padroes_de_projeto.app;
 import java.util.List;
 import java.time.LocalDate;
-import padroes_de_projeto.app.base.Motorista;
-import padroes_de_projeto.app.base.Viagem;
-import padroes_de_projeto.app.base.Mensagem;
+import padroes_de_projeto.app.base.*;
 import padroes_de_projeto.app.DTO.*;
-
-
 import padroes_de_projeto.app.service.ViagemService;
-
-
 
 
 // Fachada responsável por centralizar o processo do TFD
@@ -17,12 +11,38 @@ public class TFDFacade {
 
     // Subsistema responsável pela alocação de motoristas
     private ViagemService viagemService;
-
     // Recebe o serviço de viagem pelo construtor
     public TFDFacade(ViagemService viagemService) {
         this.viagemService = viagemService;
     }
 
+    public boolean solicitarViagem(SolicitacaoDTO dto){
+        if(dto.getMunicipioOrigem().trim().equalsIgnoreCase(dto.getMunicipioProcedimento().trim())){
+            System.out.println("VIAGEM NEGADA! O procedimento deve ser fora da cidade de origem.");
+            return false;
+        }
+
+        LocalDate datahoje = LocalDate.now();
+        LocalDate dataUmDiaAntes = datahoje.minusDays(1);
+
+        if(dto.getDataViagem().isEqual(datahoje)){
+            System.out.print("VIAGEM NEGADA! A viagem deve ser solicitada um dia antes do procedimento.");
+            return false;
+        }
+
+        if(dto.getDataViagem().isEqual(dataUmDiaAntes)){
+            System.out.print("VIAGEM NEGADA! A viagem deve ser solicitada no minímo por um dia antes do procedimento.");
+            return false;
+        }
+
+        if(!dto.getDataViagem().isAfter(datahoje)){
+            System.out.print("VIAGEM NEGADA! A viagem deve ser solicitada no minímo por um dia antes do procedimento.");
+            return false;
+        }
+
+        return true;
+
+    }
     // Centraliza a alocação do motorista através da fachada
     public Motorista alocarMotorista(
         Viagem viagem,
@@ -30,14 +50,13 @@ public class TFDFacade {
         List<Viagem> viagens,
         LocalDate dataReferencia
     ) {
-
         // Encaminha a alocação para o serviço de viagem
         return viagemService.alocarMotorista(
             viagem, motoristas, viagens, dataReferencia
         );
     }
 
-    public Mensagem enviarMensagem(MensagemDaViagemDTO dto){
+    public Mensagem enviarMensagemmMensagem(MensagemDaViagemDTO dto){
         if(dto == null || !dto.isConfirmacao()){
             return null;
         }
@@ -53,26 +72,31 @@ public class TFDFacade {
        return mensagem;
     }
 
-    // Cria e exibe a mensagem com os dados da viagem
-    public void enviarMensagem(Viagem viagem) {
-        if(viagem == null){
-            System.out.println("Essa viagem não existe!");
+    public void Criarviagem(Viagem viagem, SolicitacaoDTO Solidto, List<Motorista> motoristas1, List<Viagem> viagens) {
+        if(solicitarViagem(Solidto) == false){
+            System.out.println("\n______________________________________________\n");
             return;
         }
+                viagem.adicionarPaciente(Solidto.getIdPaciente());
+                viagem.setData(Solidto.getDataViagem());
+                viagem.setHospitalDestino(Solidto.getMunicipioProcedimento());
+                viagem.setLocalOrigem(Solidto.getMunicipioOrigem());
+                viagem.adicionarSolicitacao(Solidto);
+                viagem.setFuncionarioAlocador(null);
+                viagem.setAcompanhante(Solidto.getAcompanhate());
+                viagem.setHorarioProcedimento(Solidto.getHorarioProcedimento());
+        viagem.setMotorista(processarViagem(viagem, motoristas1 , viagens ,Solidto.getDataViagem()));
         Motorista motorista = viagem.getMotorista();
-        
+
         if(motorista == null){
             System.out.println("Viagem negada por falta de motorista!");
         }else{
-        
-            if(viagem.isConfirmacao() == false){
-                System.out.println("Viagem negada!");
-                return;
-            }
+                viagem.setPresencaPaciente(true);
+                viagem.setConfirmacao(true);
                 String nomeMotorista = motorista.getNome();
                 String telefoneMotorista = motorista.getTelefone();
-                MensagemDaViagemDTO dto = new MensagemDaViagemDTO(viagem.getLocalOrigem(), viagem.getHospitalDestino(), viagem.getDataViagem(), viagem.isConfirmacao(), nomeMotorista, telefoneMotorista, viagem.getHorarioProcedimento());
-                Mensagem mensagem = enviarMensagem(dto);
+                MensagemDaViagemDTO dto = new MensagemDaViagemDTO(viagem.getLocalOrigem(), viagem.getHospitalDestino(), viagem.getData(), viagem.isConfirmacao(), nomeMotorista, telefoneMotorista, viagem.getHorarioProcedimento());
+                Mensagem mensagem = enviarMensagemmMensagem(dto);
                 exibirMensagem(dto);
                 viagem.adicionarMensagem(mensagem);
         }
@@ -84,15 +108,10 @@ public class TFDFacade {
         List<Viagem> viagens,
         LocalDate dataReferencia
     ) {
-
         // Aloca o motorista utilizando a Strategy
         Motorista motorista = alocarMotorista(
             viagem, motoristas, viagens, dataReferencia
         );
-
-        // Exibe a mensagem com os dados da viagem
-        enviarMensagem(viagem);
-
         // Retorna o motorista selecionado
         return motorista;
     }

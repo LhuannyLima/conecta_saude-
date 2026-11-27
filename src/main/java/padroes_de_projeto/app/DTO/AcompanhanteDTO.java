@@ -1,10 +1,14 @@
 package padroes_de_projeto.app.DTO;
 import java.util.Objects;
 
-public class AcompanhanteDTO {
+import padroes_de_projeto.app.base.Acompanhante;
+
+public class AcompanhanteDTO extends Acompanhante {
     private final String nome;
     private final String sobrenome;
     private final String cpf;
+
+    public AcompanhanteDTO(){}
 
     public AcompanhanteDTO(String nome, String sobrenome, String cpf) {
         this.nome = validarTexto(nome, "Nome do acompanhante");

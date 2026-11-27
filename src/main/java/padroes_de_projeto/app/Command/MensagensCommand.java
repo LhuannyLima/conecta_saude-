@@ -1,9 +1,8 @@
 package padroes_de_projeto.app.Command;
 
-import padroes_de_projeto.app.base.*;
 import padroes_de_projeto.app.TFDFacade;
 import padroes_de_projeto.app.DTO.MensagemDaViagemDTO;
-import padroes_de_projeto.app.DTO.SolicitacaoDTO;
+
 
 import java.util.Objects;
 
@@ -18,6 +17,6 @@ public class MensagensCommand  implements Command{
 
     @Override 
     public void execute(){
-        facade.enviarMensagem(dto);
+        facade.enviarMensagemmMensagem(dto);
     }
 }
