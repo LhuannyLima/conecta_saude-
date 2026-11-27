@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class Viagem extends SolicitacaoTFD {
     //atributos
+    private LocalTime horario;
     private LocalDate data;
     private String localOrigem;
     private String hospitalDestino;
@@ -26,7 +27,23 @@ public class Viagem extends SolicitacaoTFD {
         this.solicitacao = new ArrayList<>();
     }
 
-    public Viagem(LocalTime horarioProcedimento, Acompanhante acompanhante, Motorista motorista,  Paciente paciente, SolicitacaoTFD solicitacao, Mensagem mensagem, LocalDate data, boolean confirmacao, boolean presencaPaciente, String localOrigem, String hospitalDestino){
+
+    public Viagem(
+        Motorista motorista,
+        Funcionario funcionarioAlocador,
+        Paciente paciente,
+        SolicitacaoTFD solicitacao,
+        Acompanhante acompanhante,
+        Mensagem mensagem,
+        LocalTime horario,
+        LocalDate data,
+        boolean confirmacao,
+        boolean presencaPaciente,
+        String localOrigem,
+        String hospitalDestino,
+        LocalTime horarioProcedimento
+    ){
+        this.horario = horario;
         this.data = data;
         this.confirmacao = confirmacao;
         this.presencaPaciente = confirmacao;
@@ -56,6 +73,12 @@ public class Viagem extends SolicitacaoTFD {
         return data;
     }public void setData(LocalDate data) {
         this.data = data;
+    }
+
+    public LocalTime getHorario() {
+        return horario;
+    }public void sethorario(LocalTime horario) {
+        this.horario = horario;
     }
 
     public String getLocalOrigem() {

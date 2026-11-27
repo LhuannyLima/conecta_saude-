@@ -78,7 +78,6 @@ public class App {
             viagens,
             dataReferencia
         );
-
         // Exibe o motorista escolhido
         System.out.println("Motorista selecionado: " + motoristaEscolhido.getNome());
     }

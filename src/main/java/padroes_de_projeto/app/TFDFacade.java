@@ -100,7 +100,7 @@ public class TFDFacade {
                 exibirMensagem(dto);
                 viagem.adicionarMensagem(mensagem);
         }
-    }
+}
         // Coordena a alocação do motorista e a exibição da mensagem
     public Motorista processarViagem(
         Viagem viagem,

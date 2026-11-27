@@ -32,50 +32,50 @@ public class SolicitacaoDTO extends SolicitacaoTFD {
         this.dataViagem = Objects.requireNonNull(dataViagem, "Data viagem não pode está vazia");
         this.acompanhate = acompanhate;
         this.horarioProcedimento = Objects.requireNonNull(horarioProcedimento, "Horário do procedimento marcado");
-        }
+    }
 
-        private String validacao(String valor, String campo){
-            Objects.requireNonNull(valor, campo + "Por favor, digite a informação solicitada");
-            if (valor.trim().isEmpty()){
-                throw new IllegalArgumentException(campo + "Não pode ser vazio.");
-            }return valor;
-        }
+    private String validacao(String valor, String campo){
+        Objects.requireNonNull(valor, campo + "Por favor, digite a informação solicitada");
+        if (valor.trim().isEmpty()){
+            throw new IllegalArgumentException(campo + "Não pode ser vazio.");
+        }return valor;
+    }
 
-        public LocalTime gethorarioProcedimento(){
-            return horarioProcedimento;
-        }
+    public LocalTime gethorarioProcedimento(){
+        return horarioProcedimento;
+    }
 
-        public String getIdSolicitacao() {
-            return idSolicitacao;
-        }
+    public String getIdSolicitacao() {
+        return idSolicitacao;
+    }
 
         public Paciente getIdPaciente() {
             return paciente;
         }
 
-        public String getMunicipioOrigem() {
-            return municipioOrigem;
-        }
+    public String getMunicipioOrigem() {
+        return municipioOrigem;
+    }
 
-        public String getMunicipioProcedimento() {
-            return municipioProcedimento;
-        }
+    public String getMunicipioProcedimento() {
+        return municipioProcedimento;
+    }
 
-        public LocalDate getDataViagem() {
-            return dataViagem;
-        }
+    public LocalDate getDataViagem() {
+        return dataViagem;
+    }
 
-        public AcompanhanteDTO getAcompanhate() {
-            if(acompanhate != null){
-                return acompanhate;
-            }else{
-                return null;
-            }
+    public AcompanhanteDTO getAcompanhate() {
+        if(acompanhate != null){
+            return acompanhate;
+        }else{
+            return null;
         }
+    }
 
-        public LocalTime getHorarioProcedimento() {
-            return horarioProcedimento;
-        }
+    public LocalTime getHorarioProcedimento() {
+        return horarioProcedimento;
+    }
 
         public boolean isNecessitaVeiculoAdaptado() {
             return necessitaVeiculoAdaptado;

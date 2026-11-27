@@ -1,21 +1,24 @@
 package padroes_de_projeto.app.Command;
+import padroes_de_projeto.app.TFDFacade;
+import padroes_de_projeto.app.DTO.MensagemDaViagemDTO;
 
 import padroes_de_projeto.app.TFDFacade;
-import padroes_de_projeto.app.DTO.SolicitacaoDTO;
+import padroes_de_projeto.app.DTO.MensagemDaViagemDTO;
+
 
 import java.util.Objects;
 
-public class SolicitacaoCommand implements Command {
+public class MensagensCommand  implements Command{
     private final TFDFacade facade; 
-    private final SolicitacaoDTO dto;
+    private final MensagemDaViagemDTO dto;
     
-    public SolicitacaoCommand(TFDFacade facade, SolicitacaoDTO dto){
+    public MensagensCommand(TFDFacade facade, MensagemDaViagemDTO dto){
         this.facade = Objects.requireNonNull(facade, "Facade, não pode ser nulo!");
         this.dto = Objects.requireNonNull(dto, "DTO, não pode ser nulo!");
     }
 
     @Override 
     public void execute(){
-        facade.solicitarViagem(dto);
+        facade.enviarMensagemmMensagem(dto);
     }
 }

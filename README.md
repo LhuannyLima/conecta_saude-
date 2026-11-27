@@ -26,7 +26,7 @@ A aplicação deverá apoiar o cadastro de pacientes, motoristas e funcionários
 ## 4. Tecnologias e padrões de projeto
 
 - **Banco de dados:** SQLite.
-- **Padrões de projeto (GoF) previstos:** Factory Method e Facade.
+- **Padrões de projeto (GoF) previstos:** Singleton e Facade.
 - **API externa:** API de autorização do Google utilizando o OAuth.
 
 > Esta seção deverá ser atualizada conforme as tecnologias e os padrões forem definidos e implementados pela equipe.
